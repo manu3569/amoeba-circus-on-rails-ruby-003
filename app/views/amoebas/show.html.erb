@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<% if flash[:error] %>
+  <p class="alert alert-error"><%= flash[:error] %></p>
+<% end %>
 <p>
   <strong>Name:</strong>
   <%= @amoeba.name %>
@@ -13,6 +15,20 @@
 <p>
   <strong>Talent:</strong>
   <%= @amoeba.talent.name %>
+</p>
+<p>
+  <strong>Acts:</strong>
+  <% if @amoeba.acts.any? %>
+  <ul>
+    <% @amoeba.acts.each do |act| %>
+    <li>
+      <strong><%= act.name %></strong>
+    </li>
+    <% end %>
+  </ul>
+  <% else %>
+  <em>Not in any acts.</em>
+  <% end %>
 </p>
 <%= link_to 'Edit', edit_amoeba_path(@amoeba) %> |
 <%= link_to 'Back', amoebas_path %>

@@ -23,6 +23,16 @@
     <%= f.label :talent_id %><br>
     <%= f.select :talent_id, @talents %>
   </div>
+
+  <div class="field">
+    <% @acts.each do |act| %>
+      <%= check_box_tag "amoeba[act_ids][]", 
+            act.id, @amoeba.act_ids.include?(act.id), 
+            id: "amoeba_act_ids_#{act.id}" %>
+      <%= label_tag "amoeba_act_ids_#{act.id}", act.name %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

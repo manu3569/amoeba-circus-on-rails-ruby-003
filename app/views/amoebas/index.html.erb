@@ -1,3 +1,8 @@
+<p id="notice"><%= notice %></p>
+<% if flash[:error] %>
+  <p class="alert alert-error"><%= flash[:error] %></p>
+<% end %>
+
 <h1>Listing amoebas</h1>
 
 <table>

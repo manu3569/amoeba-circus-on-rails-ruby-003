@@ -1,6 +1,7 @@
 class AmoebasController < ApplicationController
   before_action :set_amoeba, only: [:show, :edit, :update, :destroy, :split]
   before_action :set_talents, only: [:new, :edit]
+  before_action :set_acts, only: [:new, :edit]
   # GET /amoebas
   # GET /amoebas.json
   def index
@@ -63,8 +64,9 @@ class AmoebasController < ApplicationController
 
   def split
     if @amoeba.split(split_params[:amoeba_1], split_params[:amoeba_2])
-      redirect_to amoebas_url
+      redirect_to amoebas_url, notice: "#{@amoeba.name} will live on in his two children."
     else
+      flash.now[:error] = "#{@amoeba.name} couldn't split."
       render :show
     end
   end
@@ -79,9 +81,13 @@ class AmoebasController < ApplicationController
       @talents = Talent.all.map {|t| [t.name.humanize, t.id]}
     end
 
+    def set_acts
+      @acts = Act.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def amoeba_params
-      params.require(:amoeba).permit(:name, :generation, :talent_id)
+      params.require(:amoeba).permit(:name, :generation, :talent_id, :"act_ids" => [])
     end
     def split_params
       params.require(:amoeba).permit(:amoeba_1, :amoeba_2)
