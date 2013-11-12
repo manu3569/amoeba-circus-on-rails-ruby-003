@@ -11,3 +11,7 @@
 end
 
 Talent.find_by(name: 'juggler').amoebas.create(name: "Brian", generation: 1)
+Talent.find_by(name: 'acrobat').amoebas.create(name: "Adam", generation: 5)
+Talent.find_by(name: 'clown').amoebas.create(name: "Clarence", generation: 3)
+Talent.find_by(name: 'contortionist').amoebas.create(name: "Conrad", generation: 1)
+Talent.find_by(name: 'freak').amoebas.create(name: "Frank", generation: 4)
