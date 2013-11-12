@@ -10,5 +10,18 @@
   <%= @act.date %>
 </p>
 
+<p>
+  Amoebas:
+</p>
+<% if @act.amoebas.any? %>
+<ul>
+  <% @act.amoebas.each do |amoeba| %>
+    <li>
+      <%= link_to amoeba.name, amoeba %>
+    </li>
+  <% end %>
+</ul>
+<% end %>
+
 <%= link_to 'Edit', edit_act_path(@act) %> |
 <%= link_to 'Back', acts_path %>
