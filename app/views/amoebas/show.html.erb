@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @amoeba.name %>
+</p>
+
+<p>
+  <strong>Generation:</strong>
+  <%= @amoeba.generation %>
+</p>
+
+<p>
+  <strong>Talent:</strong>
+  <%= @amoeba.talent %>
+</p>
+
+<%= link_to 'Edit', edit_amoeba_path(@amoeba) %> |
+<%= link_to 'Back', amoebas_path %>
