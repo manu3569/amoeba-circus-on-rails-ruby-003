@@ -1,6 +1,6 @@
 class AmoebasController < ApplicationController
   before_action :set_amoeba, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_talents, only: [:new, :edit]
   # GET /amoebas
   # GET /amoebas.json
   def index
@@ -65,6 +65,10 @@ class AmoebasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_amoeba
       @amoeba = Amoeba.find(params[:id])
+    end
+
+    def set_talents
+      @talents = Talent.all.map {|t| [t.name.humanize, t.id]}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

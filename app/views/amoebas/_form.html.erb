@@ -20,8 +20,8 @@
     <%= f.number_field :generation %>
   </div>
   <div class="field">
-    <%= f.label :talent %><br>
-    <%= f.text_field :talent %>
+    <%= f.label :talent_id %><br>
+    <%= f.select :talent_id, @talents %>
   </div>
   <div class="actions">
     <%= f.submit %>
