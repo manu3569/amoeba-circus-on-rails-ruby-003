@@ -1,7 +1,11 @@
 AmoebaCircusOnRailsRuby003::Application.routes.draw do
   resources :acts
 
-  resources :amoebas
+  resources :amoebas do
+    member do
+      post 'split'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,5 +1,5 @@
 class AmoebasController < ApplicationController
-  before_action :set_amoeba, only: [:show, :edit, :update, :destroy]
+  before_action :set_amoeba, only: [:show, :edit, :update, :destroy, :split]
   before_action :set_talents, only: [:new, :edit]
   # GET /amoebas
   # GET /amoebas.json
@@ -61,6 +61,14 @@ class AmoebasController < ApplicationController
     end
   end
 
+  def split
+    if @amoeba.split(split_params[:amoeba_1], split_params[:amoeba_2])
+      redirect_to amoebas_url
+    else
+      render :show
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_amoeba
@@ -74,5 +82,8 @@ class AmoebasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def amoeba_params
       params.require(:amoeba).permit(:name, :generation, :talent_id)
+    end
+    def split_params
+      params.require(:amoeba).permit(:amoeba_1, :amoeba_2)
     end
 end

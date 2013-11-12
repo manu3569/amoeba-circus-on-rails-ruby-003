@@ -19,5 +19,12 @@ describe Amoeba do
         expect(Amoeba.find_by(name: joe.name)).to be_nil
       end
     end
+    context "when no names are given for the new amoebas" do
+      it "creates the new amoebas with the same talent as the parent" do
+        joe.split
+        expect(Amoeba.first.name).to eq("Son of #{joe.name}")
+        expect(Amoeba.last.name).to eq("Daughter of #{joe.name}")
+      end
+    end
   end
 end
