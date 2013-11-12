@@ -7,7 +7,7 @@ FactoryGirl.define do
     talent nil
     factory :joe do
       name "Joe"
-      association :talent, :juggler
+      association :talent, :factory => :juggler
     end
   end
 end

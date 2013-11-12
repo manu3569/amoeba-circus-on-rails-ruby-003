@@ -1,7 +1,25 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/manu/Development/code/amoeba-circus-on-rails-ruby-003/app/models/amoeba.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        3,
+        3,
+        3,
+        null,
+        null
+      ],
+      "/Users/manu/Development/code/amoeba-circus-on-rails-ruby-003/app/models/talent.rb": [
+        1,
+        1,
+        null
+      ]
     },
-    "timestamp": 1384217443
+    "timestamp": 1384218092
   }
 }
